@@ -15,7 +15,19 @@ const cors=require('cors');
 
 //Database
 
+
+
+// Front End Tagging
+app.use(express.static('client/build'))
+app.get("*",function (req,res){
+    req.sendFile(path.resolve(__dirname,'client','build','index.html'));
+})
+
+
+
+
 const mongoose=require('mongoose');
+const {path} = require("express/lib/application");
 
 //Security Middleware Implement
 app.use(cors());
